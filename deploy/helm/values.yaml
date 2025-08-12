@@ -1,0 +1,6 @@
+image:
+  repository: guhan905/nginx-n01735066
+  tag: latest
+service:
+  type: NodePort
+  port: 80

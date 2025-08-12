@@ -1,0 +1,23 @@
+name: Build and Push NGINX Image
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.guhan905 }}
+          password: ${{ secrets.Guhan@1108 }}
+
+      - name: Build and push Docker image
+        run: |
+          docker build -t guhan905/nginx-n01735066:${{ github.sha }} ./app
+          docker push guhan905/nginx-n01735066:${{ github.sha }}
